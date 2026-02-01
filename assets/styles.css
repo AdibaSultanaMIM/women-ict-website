@@ -74,3 +74,27 @@ body {
 /* Footer */
 .footer { background: #333; color: #fff; text-align: center; padding: 2rem; margin-top: 4rem; }
 .footer a { color: var(--demo-yellow); margin: 0 10px; text-decoration: none; }
+
+
+
+
+/* Circular and Colorful Story Images */
+.story-card {
+  text-align: center; /* Center everything in the card */
+  padding: 3rem 2rem;
+}
+
+.story-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* This makes it a perfect circle */
+  object-fit: cover; /* This prevents the image from looking squished */
+  margin-bottom: 1.5rem;
+  border: 5px solid var(--demo-yellow); /* Colorful border (Yellow) */
+  box-shadow: 0 4px 15px rgba(106, 27, 154, 0.2); /* Purple glow */
+}
+
+/* Give different cards different border colors */
+.card-red .story-img { border-color: var(--buet-red); }
+.card-purple .story-img { border-color: var(--demo-purple); }
+
