@@ -5,7 +5,7 @@
   --ink: #1f2937;
   --muted: rgba(31,41,55,.72);
   --bg: #ffffff;
-  --panel: #f7f7fb;
+  --panel: #f7f7fb; /* Light professional grey */
   --border: rgba(31,41,55,.12);
 }
 
@@ -18,83 +18,120 @@ body {
   line-height: 1.6; 
 }
 
-/* Header & Navigation */
+/* 1. Solid Professional Header */
 .header {
-  background: #fff;
-  padding: 1rem 2rem;
+  background: #ffffff; /* Solid white */
+  padding: 1.5rem 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* Stack banner above navigation */
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  border-bottom: 4px solid var(--buet-red); /* Strong BUET red accent */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 100;
 }
-.brand { display: flex; align-items: center; gap: 10px; }
-.brand img { height: 40px; width: auto; }
-.brand .title { font-size: 1.25rem; font-weight: 800; color: var(--demo-purple); }
-.nav a { margin-left: 20px; color: #555; font-weight: 600; text-decoration: none; }
-.nav a.btn { background: var(--demo-purple); color: #fff; padding: 8px 16px; border-radius: 8px; }
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('hero.jpg');
-  background-position: center;
-  background-size: cover;
-  color: #fff;
-  padding: 5rem 2rem;
+.brand { 
+  width: 100%; 
+  max-width: 1000px; 
+  margin-bottom: 1.5rem;
   text-align: center;
 }
-.hero h1 { font-size: 2.8rem; margin: 0 0 1rem; }
-.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 1.5rem; }
+
+.brand img { 
+  width: 100%; 
+  max-height: 150px; /* Adjust based on your banner shape */
+  object-fit: contain; 
+}
+
+.nav { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.nav a { color: #555; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+.nav a.active { color: var(--demo-purple); border-bottom: 2px solid var(--demo-purple); }
+.nav a.btn { 
+  background: var(--demo-purple); 
+  color: #fff; 
+  padding: 6px 16px; 
+  border-radius: 8px; 
+  margin-top: -4px;
+}
+
+/* 2. Professional Hero (No transparent overlay) */
+.hero {
+  background: var(--panel); 
+  padding: 5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 { 
+  font-size: 3rem; 
+  color: var(--demo-purple); 
+  margin: 0 0 1rem; 
+  font-weight: 800;
+}
+
+.hero p { 
+  font-size: 1.3rem; 
+  max-width: 850px; 
+  margin: 0 auto 2rem; 
+  color: var(--muted);
+}
+
 .badge {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(200,16,46,0.2);
+  background: rgba(200,16,46,0.1);
   border: 1px solid var(--buet-red);
+  color: var(--buet-red);
   margin: 5px;
-  font-size: 0.9rem;
+  font-weight: 700;
 }
 
-/* Buttons */
-.buttons a { display: inline-block; padding: 12px 24px; border-radius: 8px; font-weight: 700; text-decoration: none; margin: 5px; }
-.primary { background: var(--demo-yellow); color: #000; }
+/* 3. Buttons */
+.buttons a { 
+  display: inline-block; 
+  padding: 14px 28px; 
+  border-radius: 10px; 
+  font-weight: 800; 
+  text-decoration: none; 
+  margin: 10px;
+  transition: transform 0.2s;
+}
+.buttons a:hover { transform: translateY(-2px); }
+.primary { background: var(--demo-yellow); color: #000; box-shadow: 0 4px 10px rgba(255, 202, 40, 0.3); }
 .secondary { background: var(--buet-red); color: #fff; }
 
-/* Content Sections */
-.section { padding: 4rem 2rem; max-width: 1200px; margin: auto; }
-.section h2 { text-align: center; color: var(--demo-purple); font-size: 2rem; margin-bottom: 2rem; }
-.center-text { text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--muted); }
+/* 4. Sections & Features */
+.section { padding: 5rem 2rem; max-width: 1200px; margin: auto; }
+.section h2 { text-align: center; color: var(--demo-purple); font-size: 2.2rem; margin-bottom: 3rem; }
+.center-text { text-align: center; max-width: 800px; margin: 0 auto 4rem; color: var(--muted); font-size: 1.1rem; }
 
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-.feature-box { background: var(--panel); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--border); }
-.feature-box h3 { color: var(--demo-purple); margin-top: 0; }
-
-/* Footer */
-.footer { background: #333; color: #fff; text-align: center; padding: 2rem; margin-top: 4rem; }
-.footer a { color: var(--demo-yellow); margin: 0 10px; text-decoration: none; }
-
-
-
-
-/* Circular and Colorful Story Images */
-.story-card {
-  text-align: center; /* Center everything in the card */
-  padding: 3rem 2rem;
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+.feature-box { 
+  background: #fff; 
+  padding: 3rem 2rem; 
+  border-radius: 16px; 
+  text-align: center; 
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
+.feature-box h3 { color: var(--demo-purple); font-size: 1.5rem; margin-top: 0; }
 
+/* 5. Circular Story Images (Step 9 update) */
+.story-card { text-align: center; padding: 3rem 2rem; background: #fff; border-radius: 16px; border: 1px solid var(--border); }
 .story-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; /* This makes it a perfect circle */
-  object-fit: cover; /* This prevents the image from looking squished */
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 1.5rem;
-  border: 5px solid var(--demo-yellow); /* Colorful border (Yellow) */
-  box-shadow: 0 4px 15px rgba(106, 27, 154, 0.2); /* Purple glow */
+  border: 6px solid var(--demo-yellow);
+  box-shadow: 0 8px 20px rgba(106, 27, 154, 0.15);
 }
-
-/* Give different cards different border colors */
 .card-red .story-img { border-color: var(--buet-red); }
 .card-purple .story-img { border-color: var(--demo-purple); }
 
+/* 6. Footer */
+.footer { background: #1f2937; color: #fff; text-align: center; padding: 3rem; margin-top: 4rem; }
+.footer a { color: var(--demo-yellow); margin: 0 15px; text-decoration: none; font-weight: 600; }
